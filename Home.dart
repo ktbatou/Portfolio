@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     PageController controller = PageController();
+    
     double contextHeight = MediaQuery.of(context).size.height;
     double contextWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           toolbarHeight: contextHeight * 0.06,
-          actions: <Widget>[ActionBar()],
+          actions: <Widget>[ActionBar(control: controller,)],
         ),
         body: OpscrollWeb(
           isFloatingButtonActive: true,

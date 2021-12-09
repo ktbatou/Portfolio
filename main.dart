@@ -20,14 +20,19 @@ class _MyApp extends State<MyApp> {
         BouncingScrollWrapper.builder(context, widget!),
         // maxWidth: 1200,
         minWidth: 480,
-        defaultScale: true,
+        defaultScale: false,
         breakpoints: [
+          /* ResponsiveBreakpoint.resize(480, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+          ResponsiveBreakpoint.autoScale(2460, name: '4K'),*/
           ResponsiveBreakpoint.autoScale(450, name: MOBILE),
           ResponsiveBreakpoint.autoScale(700, name: MOBILE),
-          ResponsiveBreakpoint.resize(800, name: TABLET),
-          ResponsiveBreakpoint.resize(1000, name: TABLET),
+          ResponsiveBreakpoint.resize(800, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(900, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(1000, name: TABLET),
           ResponsiveBreakpoint.autoScale(1200, name: DESKTOP),
-          ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+          ResponsiveBreakpoint.autoScale(2460, name: "4K")
         ],
       ),
       home: Home(),

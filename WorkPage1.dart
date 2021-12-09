@@ -11,51 +11,73 @@ class Work1 extends StatefulWidget {
 class _Work1State extends State<Work1> {
   @override
   Widget build(BuildContext context) {
+    bool isScreenWide = MediaQuery.of(context).size.width >= 800;
+
     double contextHeight = MediaQuery.of(context).size.height;
     double contextWidth = MediaQuery.of(context).size.width;
     return Container(
       color: Color(0xffC7D7D9),
       width: contextWidth,
       height: contextHeight,
-      child: Row(
+      child: Flex(
+        direction: isScreenWide ? Axis.horizontal : Axis.vertical,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-              margin: EdgeInsets.only(bottom: 100, left: 20),
-              width: 200,
-              height: 400,
-              decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    15,
-                  ),
-                  image: new DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage('images/home.png')))),
-          Container(
-              margin: EdgeInsets.only(
-                left: 20,
-              ),
-              width: 200,
-              height: 400,
-              decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    15,
-                  ),
-                  image: new DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage('images/menu.png')))),
-          Container(
-              margin: EdgeInsets.only(top: 100, left: 20),
-              width: 200,
-              height: 400,
-              decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    15,
-                  ),
-                  image: new DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('images/stepper.png')))),
+            margin: EdgeInsets.only(top: isScreenWide ? 0 : 70),
+            child: Row(children: [
+              DelayedDisplay(
+                  fadingDuration: Duration(milliseconds: 600),
+                  delay: Duration(milliseconds: 800),
+                  slidingBeginOffset: Offset(0, 3),
+                  child: Container(
+                      margin: EdgeInsets.only(bottom: 100, left: 20),
+                      width: 200,
+                      height: 400,
+                      decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            15,
+                          ),
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage('images/home.png'))))),
+              DelayedDisplay(
+                  fadingDuration: Duration(milliseconds: 600),
+                  delay: Duration(milliseconds: 880),
+                  slidingBeginOffset: Offset(0, 3),
+                  child: Container(
+                      margin: EdgeInsets.only(
+                        left: 20,
+                      ),
+                      width: 200,
+                      height: 400,
+                      decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            15,
+                          ),
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage('images/menu.png'))))),
+              DelayedDisplay(
+                  fadingDuration: Duration(milliseconds: 600),
+                  delay: Duration(milliseconds: 920),
+                  slidingBeginOffset: Offset(0, 3),
+                  child: Container(
+                      margin: EdgeInsets.only(top: 100, left: 20),
+                      width: 200,
+                      height: 400,
+                      decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            15,
+                          ),
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage('images/stepper.png'))))),
+            ]),
+          ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.only(top: 150),
+              padding: EdgeInsets.only(top: isScreenWide ? 150 : 0),
               child: Align(
                 alignment: Alignment.center,
                 child: Column(children: [
@@ -63,7 +85,7 @@ class _Work1State extends State<Work1> {
                     alignment: Alignment.center,
                     child: Container(
                       child: DelayedDisplay(
-                        delay: Duration(seconds: 2),
+                        delay: Duration(milliseconds: 300),
                         child: Text(
                           "Tracker",
                           style: TextStyle(
@@ -83,7 +105,7 @@ class _Work1State extends State<Work1> {
                     child: Align(
                       alignment: Alignment.center,
                       child: DelayedDisplay(
-                        delay: Duration(seconds: 3),
+                        delay: Duration(milliseconds: 300),
                         child: Text(
                           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat",
                           textAlign: TextAlign.center,
@@ -97,20 +119,22 @@ class _Work1State extends State<Work1> {
                   ),
                   Align(
                       alignment: Alignment.centerRight,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                    padding: EdgeInsets.only(top: 5),
-                                    child: Icon(MyFlutterApp.github_circled))),
-                            Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                    padding: EdgeInsets.only(top: 20),
-                                    child: DelayedDisplay(
-                                      delay: Duration(seconds: 3),
+                      child: DelayedDisplay(
+                          delay: Duration(seconds: 2),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                    alignment: Alignment.center,
+                                    child: Container(
+                                        padding:
+                                            EdgeInsets.only(top: 16, right: 10),
+                                        child:
+                                            Icon(MyFlutterApp.github_circled))),
+                                Align(
+                                    alignment: Alignment.center,
+                                    child: Container(
+                                      padding: EdgeInsets.only(top: 20),
                                       child: InkWell(
                                         onTap: () => launch(
                                             'https://github.com/ktbatou'),
@@ -124,8 +148,8 @@ class _Work1State extends State<Work1> {
                                           ),
                                         ),
                                       ),
-                                    )))
-                          ]))
+                                    ))
+                              ])))
                 ]),
               ),
             ),

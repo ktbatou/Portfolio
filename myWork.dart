@@ -25,6 +25,7 @@ class _MyWorkState extends State<MyWork> {
       },
       itemCount: widList.length,
       controller: SwiperController(),
+      autoplayDisableOnInteraction: true,
     );
   }
 }
