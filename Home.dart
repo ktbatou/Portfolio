@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:opscroll_web/opscroll_web.dart';
+import 'package:portfolio/WorkPage1.dart';
 import 'package:portfolio/appBarActions.dart';
 import 'package:portfolio/myWork.dart';
+import 'package:portfolio/technologies.dart';
 import 'package:portfolio/whoAmI.dart';
+import 'package:portfolio/woekPage2.dart';
 
 import 'appBarActions.dart';
 
@@ -17,18 +20,42 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     PageController controller = PageController();
-    
+
     double contextHeight = MediaQuery.of(context).size.height;
     double contextWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        extendBodyBehindAppBar: true,
+
+        //  extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.transparent, //(0xffDEDEDF),
           elevation: 0,
           toolbarHeight: contextHeight * 0.06,
-          actions: <Widget>[ActionBar(control: controller,)],
+          actions: <Widget>[
+            ActionBar(
+              control: controller,
+            )
+          ],
         ),
-        body: OpscrollWeb(
+        body: Center(
+            child: Container(
+          //  color: Color(0xffDEDEDF),
+          width: contextWidth,
+          //  height: contextHeight,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                WhoamI(),
+                tech(),
+                MyWork(),
+                SizedBox(
+                  height: 100,
+                )
+              ],
+            ),
+          ),
+        )) /*OpscrollWeb(
           isFloatingButtonActive: true,
           isTouchScrollingActive: true,
           pageController: controller,
@@ -44,6 +71,7 @@ class _HomeState extends State<Home> {
               child: Text("test"),
             )
           ],
-        ));
+        )*/
+        );
   }
 }

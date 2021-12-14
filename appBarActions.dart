@@ -30,7 +30,11 @@ class _ActionState extends State<ActionBar> {
                   padding: EdgeInsets.only(right: 30),
                   child: Container(
                       child: Text('Who am i',
-                          style: TextStyle(color: Color(0xff606078))))),
+                          style: TextStyle(
+                              color: Color(
+                                0xff606078,
+                              ),
+                              fontSize: 20)))),
             ),
           ),
         ),
@@ -40,7 +44,8 @@ class _ActionState extends State<ActionBar> {
               padding: EdgeInsets.only(right: 30),
               child: Container(
                   child: Text('My work',
-                      style: TextStyle(color: Color(0xff606078))))),
+                      style:
+                          TextStyle(color: Color(0xff606078), fontSize: 20)))),
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -48,7 +53,8 @@ class _ActionState extends State<ActionBar> {
               padding: EdgeInsets.only(right: 70),
               child: Container(
                   child: Text('Services',
-                      style: TextStyle(color: Color(0xff606078))))),
+                      style:
+                          TextStyle(color: Color(0xff606078), fontSize: 20)))),
         ),
       ],
     );

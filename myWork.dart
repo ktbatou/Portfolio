@@ -16,16 +16,26 @@ class _MyWorkState extends State<MyWork> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Swiper(
-      pagination: SwiperPagination(
-          builder: DotSwiperPaginationBuilder(
-              activeColor: Color(0xffC84E6D), activeSize: 12)),
-      itemBuilder: (BuildContext, int index) {
-        return widList[index];
-      },
-      itemCount: widList.length,
-      controller: SwiperController(),
-      autoplayDisableOnInteraction: true,
-    );
+    double contextHeight = MediaQuery.of(context).size.height;
+    double contextWidth = MediaQuery.of(context).size.width;
+    return Container(
+        padding: EdgeInsets.only(top: contextHeight * 0.1),
+        height: contextHeight * 0.7,
+        width: contextWidth * 0.75,
+        child: Swiper(
+          viewportFraction: 0.8,
+          scale: 0.9,
+          pagination: SwiperPagination(
+              builder: DotSwiperPaginationBuilder(
+                  activeColor: Color(0xffC84E6D),
+                  activeSize: 12,
+                  color: Colors.blueGrey)),
+          itemBuilder: (BuildContext, int index) {
+            return widList[index];
+          },
+          itemCount: widList.length,
+          controller: SwiperController(),
+          autoplayDisableOnInteraction: true,
+        ));
   }
 }
