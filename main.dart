@@ -14,27 +14,26 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("images/me.png"), context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      builder: (context, widget) => ResponsiveWrapper.builder(
+      /*builder: (context, widget) => ResponsiveWrapper.builder(
         BouncingScrollWrapper.builder(context, widget!),
         // maxWidth: 1200,
         minWidth: 480,
         defaultScale: false,
         breakpoints: [
-          ResponsiveBreakpoint.resize(1200, name: DESKTOP),
-          ResponsiveBreakpoint.autoScale(2460, name: '4K'),
-          ResponsiveBreakpoint.autoScale(2460, name: '4K'),
-          /* ResponsiveBreakpoint.resize(450, name: MOBILE),
+          ResponsiveBreakpoint.resize(450, name: MOBILE),
           ResponsiveBreakpoint.resize(500, name: MOBILE),
           ResponsiveBreakpoint.autoScale(700, name: MOBILE),
           ResponsiveBreakpoint.resize(800, name: MOBILE),
           ResponsiveBreakpoint.autoScale(900, name: MOBILE),
           ResponsiveBreakpoint.autoScale(1000, name: TABLET),
           ResponsiveBreakpoint.resize(1200, name: DESKTOP),
-          ResponsiveBreakpoint.autoScale(2460, name: "4K")*/
+          ResponsiveBreakpoint.autoScale(2460, name: "4K")
         ],
-      ),
+      ),*/
       home: Home(),
     );
   }

@@ -16,46 +16,33 @@ class _ActionState extends State<ActionBar> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Material(
-          color: Colors.transparent,
-          shadowColor: Colors.transparent,
-          elevation: 0,
-          child: InkWell(
-            onTap: () {
-              controller.jumpToPage(0);
-            },
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(right: 30),
-                  child: Container(
-                      child: Text('Who am i',
-                          style: TextStyle(
-                              color: Color(
-                                0xff606078,
-                              ),
-                              fontSize: 20)))),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
+        /*  Align(
+          alignment: Alignment.centerLeft,
           child: Padding(
-              padding: EdgeInsets.only(right: 30),
+              padding: EdgeInsets.only(top: 16, right: 30),
               child: Container(
-                  child: Text('My work',
+                  child: Text('Blog',
                       style:
                           TextStyle(color: Color(0xff606078), fontSize: 20)))),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-              padding: EdgeInsets.only(right: 70),
-              child: Container(
-                  child: Text('Services',
-                      style:
-                          TextStyle(color: Color(0xff606078), fontSize: 20)))),
-        ),
+        ),*/
+        Container(
+            width: 180,
+            height: 50,
+            padding: EdgeInsets.only(top: 16, right: 30),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xfff0e6dc)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(
+                            color: Color(0xff856654),
+                          )))),
+              child: Text('Hire me',
+                  style: TextStyle(color: Color(0xffC84E6D), fontSize: 20)),
+              onPressed: () {},
+            )),
       ],
     );
   }

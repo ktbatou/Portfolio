@@ -1,12 +1,15 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:opscroll_web/opscroll_web.dart';
 import 'package:portfolio/WorkPage1.dart';
 import 'package:portfolio/appBarActions.dart';
 import 'package:portfolio/myWork.dart';
+import 'package:portfolio/navBar.dart';
 import 'package:portfolio/technologies.dart';
+import 'package:portfolio/title.dart';
 import 'package:portfolio/whoAmI.dart';
-import 'package:portfolio/woekPage2.dart';
 
 import 'appBarActions.dart';
 
@@ -20,58 +23,61 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     PageController controller = PageController();
+    bool isScreenSmall = MediaQuery.of(context).size.width < 850;
 
+    bool isScreenWide = MediaQuery.of(context).size.width >= 850;
     double contextHeight = MediaQuery.of(context).size.height;
     double contextWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-
         //  extendBodyBehindAppBar: true,
+
         appBar: AppBar(
-          backgroundColor: Colors.transparent, //(0xffDEDEDF),
+          automaticallyImplyLeading: isScreenWide ? false : true,
+          backgroundColor:
+              Color(0xfff0e6dc), //Colors.transparent, //(0xffDEDEDF),
           elevation: 0,
-          toolbarHeight: contextHeight * 0.06,
-          actions: <Widget>[
-            ActionBar(
-              control: controller,
-            )
-          ],
+          title: Align(
+            alignment: Alignment.bottomLeft,
+            child: AutoSizeText(
+              "  Ktbatou",
+              minFontSize: 30,
+              // maxFontSize: 54,
+              maxLines: 1,
+              style: GoogleFonts.dancingScript(
+                fontSize: 36,
+                color: Color(0xffC84E6D),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          toolbarHeight: contextHeight * 0.058,
+          actions: isScreenSmall
+              ? []
+              : <Widget>[
+                  ActionBar(
+                    control: controller,
+                  )
+                ],
         ),
-        body: Center(
-            child: Container(
-          //  color: Color(0xffDEDEDF),
-          width: contextWidth,
-          //  height: contextHeight,
-          child: SingleChildScrollView(
-            child: Column(
+        endDrawer: Drawer(child: NavBar()),
+        body: Container(
+            width: contextWidth,
+            color: Color(0xfff0e6dc),
+            child: SingleChildScrollView(
+                child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                //navBar(),
                 WhoamI(),
+                TitleText(text: "Technologies"),
                 tech(),
+                TitleText(text: "My Work"),
                 MyWork(),
                 SizedBox(
                   height: 100,
                 )
               ],
-            ),
-          ),
-        )) /*OpscrollWeb(
-          isFloatingButtonActive: true,
-          isTouchScrollingActive: true,
-          pageController: controller,
-          scrollCurve: Curves.linearToEaseOut,
-          scrollingAnimationOptions: ScrollingAnimationOptions.Default,
-          scrollSpeed: const Duration(
-            milliseconds: 300,
-          ),
-          onePageChildren: [
-            WhoamI(),
-            MyWork(),
-            Container(
-              child: Text("test"),
-            )
-          ],
-        )*/
-        );
+            ))));
   }
 }
