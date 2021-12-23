@@ -2,6 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'my_flutter_app_icons.dart';
 
 class Contact extends StatefulWidget {
   @override
@@ -20,7 +23,7 @@ class _ContactState extends State<Contact> {
         width: isScreenWide ? contextWidth * 0.15 : contextWidth * 0.12,
         padding: EdgeInsets.only(top: contextHeight * 0.4),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Align(
@@ -44,30 +47,87 @@ class _ContactState extends State<Contact> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                width: contextWidth * 0.25,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: DelayedDisplay(
-                    delay: Duration(milliseconds: 300),
-                    child: AutoSizeText(
-                      '''
-          -  Twitter 
-          -   LinkedIn
-          -   Email''',
-                      maxFontSize: 20,
-                      minFontSize: 16,
-                      maxLines: 7,
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff606078),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                            padding: EdgeInsets.only(top: 13, left: 10),
+                            child: Icon(MyFlutterApp.linkedin_squared))),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          padding: EdgeInsets.only(top: 16, left: 14),
+                          child: InkWell(
+                            onTap: () => launch('https://github.com/ktbatou'),
+                            child: Text(
+                              "LinkedIn",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xffC84E6D),
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                        ))
+                  ]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                            padding: EdgeInsets.only(top: 13, right: 10),
+                            child: Icon(MyFlutterApp.email))),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          padding: EdgeInsets.only(top: 16, left: 10),
+                          child: InkWell(
+                            onTap: () => launch('https://github.com/ktbatou'),
+                            child: Text(
+                              "Email",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xffC84E6D),
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                        ))
+                  ]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                            padding: EdgeInsets.only(top: 13, left: 0),
+                            child: Icon(MyFlutterApp.twitter))),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          padding: EdgeInsets.only(top: 16, left: 16),
+                          child: InkWell(
+                            onTap: () => launch('https://github.com/ktbatou'),
+                            child: Text(
+                              "Twitter",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xffC84E6D),
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                        ))
+                  ]),
               Container(
                 padding: EdgeInsets.only(top: 10),
                 child: Divider(

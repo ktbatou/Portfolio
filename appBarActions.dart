@@ -14,21 +14,32 @@ class _ActionState extends State<ActionBar> {
   _ActionState({required this.controller});
   @override
   Widget build(BuildContext context) {
+    bool isScreenSmall = MediaQuery.of(context).size.width < 850;
+
+    bool isScreenWide = MediaQuery.of(context).size.width >= 850;
     return Row(
       children: [
-        /*  Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-              padding: EdgeInsets.only(top: 16, right: 30),
-              child: Container(
-                  child: Text('Blog',
-                      style:
-                          TextStyle(color: Color(0xff606078), fontSize: 20)))),
-        ),*/
+        isScreenWide
+            ? Container(
+                padding: EdgeInsets.only(top: 18, right: 30),
+                child: InkWell(
+                  onTap: () {},
+                  child: Text(
+                    "Blog",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xffC84E6D),
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                ),
+              )
+            : Container(),
         Container(
-            width: 180,
-            height: 50,
-            padding: EdgeInsets.only(top: 16, right: 30),
+            width: isScreenWide ? 180 : 150,
+            height: isScreenWide ? 50 : 35,
+            padding: EdgeInsets.only(top: isScreenWide ? 16 : 5, right: 30),
             child: ElevatedButton(
               style: ButtonStyle(
                   backgroundColor:

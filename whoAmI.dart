@@ -10,7 +10,19 @@ class WhoamI extends StatefulWidget {
 }
 
 class _WhoamIState extends State<WhoamI> {
+  late Image myImage;
   @override
+  void initState() {
+    super.initState();
+    myImage = Image.asset("images/me.png");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(myImage.image, context);
+  }
+
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     double contextWidth = 1920;
@@ -38,7 +50,7 @@ class _WhoamIState extends State<WhoamI> {
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
                                       fit: BoxFit.fitHeight,
-                                      image: AssetImage('images/me.png'))))),
+                                      image: myImage.image)))),
                       Contact(),
                     ])));
       else if (constraints.maxWidth < 850) {

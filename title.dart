@@ -18,14 +18,14 @@ class _TitleState extends State<TitleText> {
     return Center(
         child: Container(
             width: contextWidth * 0.2,
-            padding: EdgeInsets.only(top: isScreenWide ? 100 : 30),
+            padding: EdgeInsets.only(top: isScreenWide ? 80 : 30),
             child: Column(children: [
               Align(
                 //  alignment: Alignment.centerLeft,
                 child: Text(
                   widget.text,
                   style: GoogleFonts.poppins(
-                    fontSize: isScreenWide ? 36 : 24,
+                    fontSize: isScreenWide ? 24 : 24,
                     color: Color(0xffC84E6D),
                     fontWeight: FontWeight.w400,
                   ),
@@ -36,8 +36,8 @@ class _TitleState extends State<TitleText> {
                 child: Divider(
                   height: 10,
                   thickness: 2,
-                  indent: isScreenWide ? 200 : 150,
-                  endIndent: isScreenWide ? 20 : 85,
+                  indent: isScreenWide ? 150 : 150,
+                  endIndent: isScreenWide ? 70 : 85,
                   color: Color(0xff856654),
                 ),
               ),
@@ -46,7 +46,7 @@ class _TitleState extends State<TitleText> {
                 child: Divider(
                   height: 16,
                   thickness: 2,
-                  indent: isScreenWide ? 50 : 100,
+                  indent: isScreenWide ? 100 : 100,
                   endIndent: isScreenWide ? 100 : 130,
                   color: Color(0xff856654),
                 ),

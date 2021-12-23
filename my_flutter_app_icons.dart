@@ -25,6 +25,12 @@ class MyFlutterApp {
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
 
+  static const IconData email =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData twitter =
+      IconData(0xf099, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData github_circled =
-      IconData(0xf09b, fontFamily: 'MyFlutterApp', fontPackage: _kFontPkg);
+      IconData(0xf09b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData linkedin_squared =
+      IconData(0xf30c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

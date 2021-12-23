@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'my_flutter_app_icons.dart';
@@ -21,6 +22,37 @@ class _NavBarState extends State<NavBar> {
               Align(
                 alignment: Alignment.center,
                 child: Container(
+                  height: 60,
+                  padding: EdgeInsets.only(
+                    top: 16,
+                  ),
+                  child: Text(
+                    'Ktbatou',
+                    style: GoogleFonts.dancingScript(
+                      fontSize: 36,
+                      color: Color(0xffC84E6D),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  padding: EdgeInsets.only(top: 30, left: 30),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Text(
+                      "Blog",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xffC84E6D),
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                  ),
+                ), /* Container(
                     width: 180,
                     height: 50,
                     padding: EdgeInsets.only(
@@ -92,7 +124,8 @@ class _NavBarState extends State<NavBar> {
                           );
                         },
                         itemCount: 3),
-                  ))
+                  )*/
+              ),
             ]));
   }
 }

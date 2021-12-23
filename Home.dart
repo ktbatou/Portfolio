@@ -5,8 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:opscroll_web/opscroll_web.dart';
 import 'package:portfolio/WorkPage1.dart';
 import 'package:portfolio/appBarActions.dart';
+import 'package:portfolio/contactMe.dart';
 import 'package:portfolio/myWork.dart';
 import 'package:portfolio/navBar.dart';
+import 'package:portfolio/skills.dart';
+import 'package:portfolio/socialMedia.dart';
 import 'package:portfolio/technologies.dart';
 import 'package:portfolio/title.dart';
 import 'package:portfolio/whoAmI.dart';
@@ -40,26 +43,22 @@ class _HomeState extends State<Home> {
             alignment: Alignment.bottomLeft,
             child: AutoSizeText(
               "  Ktbatou",
-              minFontSize: 30,
-              // maxFontSize: 54,
               maxLines: 1,
               style: GoogleFonts.dancingScript(
-                fontSize: 36,
+                fontSize: isScreenWide ? 36 : 24,
                 color: Color(0xffC84E6D),
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
           toolbarHeight: contextHeight * 0.058,
-          actions: isScreenSmall
-              ? []
-              : <Widget>[
-                  ActionBar(
-                    control: controller,
-                  )
-                ],
+          actions: <Widget>[
+            ActionBar(
+              control: controller,
+            )
+          ],
         ),
-        endDrawer: Drawer(child: NavBar()),
+        drawer: Drawer(child: NavBar()),
         body: Container(
             width: contextWidth,
             color: Color(0xfff0e6dc),
@@ -70,10 +69,16 @@ class _HomeState extends State<Home> {
               children: [
                 //navBar(),
                 WhoamI(),
-                TitleText(text: "Technologies"),
-                tech(),
+                TitleText(text: "Skills"),
+                Skills(),
                 TitleText(text: "My Work"),
-                MyWork(),
+
+                MyWork(), TitleText(text: "Technologies"),
+                tech(),
+                SizedBox(
+                  height: 50,
+                ),
+                isScreenWide ? Container() : Contacts(),
                 SizedBox(
                   height: 100,
                 )
