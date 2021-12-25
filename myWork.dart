@@ -1,7 +1,9 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'WorkPage1.dart';
+import 'themeProvider.dart';
 
 class MyWork extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _MyWorkState extends State<MyWork> {
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     bool smallScreen = MediaQuery.of(context).size.width < 850;
+    var theme = Provider.of<ThemeChanger>(context, listen: true).getTheme;
 
     double contextHeight = 907; //MediaQuery.of(context).size.height;
     double contextWidth = 1920; //MediaQuery.of(context).size.width;
@@ -38,7 +41,7 @@ class _MyWorkState extends State<MyWork> {
               scale: 0.9,
               pagination: SwiperPagination(
                   builder: DotSwiperPaginationBuilder(
-                      activeColor: Color(0xffC84E6D),
+                      activeColor: theme.headerTheme,
                       activeSize: 12,
                       color: Colors.blueGrey)),
               itemBuilder: (BuildContext, int index) {

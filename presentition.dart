@@ -2,6 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/colors.dart';
+import 'package:portfolio/themeProvider.dart';
+import 'package:provider/provider.dart';
 
 class Presntitaion extends StatefulWidget {
   @override
@@ -11,9 +14,10 @@ class Presntitaion extends StatefulWidget {
 class _presntitaionState extends State<Presntitaion> {
   @override
   Widget build(BuildContext context) {
+    var theme = Provider.of<ThemeChanger>(context, listen: true).getTheme;
     bool wid = MediaQuery.of(context).size.width > 850;
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
-    double contextHeight = 907; //MediaQuery.of(context).size.height;
+    double contextHeight = 907;
     double contextWidth = 1920;
     return Container(
       width: isScreenWide ? contextWidth * 0.16 : contextWidth * 0.12,
@@ -31,7 +35,7 @@ class _presntitaionState extends State<Presntitaion> {
                   height: 16,
                   thickness: 2,
                   endIndent: isScreenWide ? 130 : 80,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
               Align(
@@ -46,7 +50,7 @@ class _presntitaionState extends State<Presntitaion> {
                       maxLines: 1,
                       style: GoogleFonts.poppins(
                         fontSize: isScreenWide ? 36 : 24,
-                        color: Color(0xffC84E6D),
+                        color: theme.headerTheme,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -70,7 +74,7 @@ class _presntitaionState extends State<Presntitaion> {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
                           fontSize: isScreenWide ? 16 : 12,
-                          color: Color(0xff3B3B58)),
+                          color: theme.textTheme),
                     ),
                   ),
                 ),
@@ -82,7 +86,7 @@ class _presntitaionState extends State<Presntitaion> {
                   thickness: 2,
                   indent: isScreenWide ? 150 : 100,
                   // endIndent: 50,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
               Align(
@@ -92,7 +96,7 @@ class _presntitaionState extends State<Presntitaion> {
                   thickness: 2,
                   indent: isScreenWide ? 50 : 20,
                   endIndent: 100,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
             ]),

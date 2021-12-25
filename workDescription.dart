@@ -1,5 +1,7 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/themeProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'my_flutter_app_icons.dart';
@@ -13,6 +15,7 @@ class _descriptionState extends State<description> {
   @override
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
+    var theme = Provider.of<ThemeChanger>(context, listen: true).getTheme;
 
     double contextHeight = 907;
     double contextWidth = 1920;
@@ -32,7 +35,7 @@ class _descriptionState extends State<description> {
                     "Tracker",
                     style: TextStyle(
                         fontSize: isScreenWide ? 36 : 24,
-                        color: Color(0xffC84E6D),
+                        color: theme.headerTheme,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
                   ),
@@ -52,7 +55,7 @@ class _descriptionState extends State<description> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xff606078),
+                        color: theme.textTheme,
                       ),
                     ),
                   ),
@@ -83,7 +86,7 @@ class _descriptionState extends State<description> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Color(0xffC84E6D),
+                                        color: theme.headerTheme,
                                         fontFamily: 'Poppins',
                                       ),
                                     ),

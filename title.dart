@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/colors.dart';
+import 'package:portfolio/themeProvider.dart';
+import 'package:provider/provider.dart';
 
 class TitleText extends StatefulWidget {
   String text;
@@ -12,8 +15,10 @@ class TitleText extends StatefulWidget {
 
 class _TitleState extends State<TitleText> {
   double contextWidth = 1920;
+
   @override
   Widget build(BuildContext context) {
+    var theme = Provider.of<ThemeChanger>(context).getTheme;
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     return Center(
         child: Container(
@@ -26,7 +31,7 @@ class _TitleState extends State<TitleText> {
                   widget.text,
                   style: GoogleFonts.poppins(
                     fontSize: isScreenWide ? 24 : 24,
-                    color: Color(0xffC84E6D),
+                    color: theme.headerTheme,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -38,7 +43,7 @@ class _TitleState extends State<TitleText> {
                   thickness: 2,
                   indent: isScreenWide ? 150 : 150,
                   endIndent: isScreenWide ? 70 : 85,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
               Align(
@@ -48,7 +53,7 @@ class _TitleState extends State<TitleText> {
                   thickness: 2,
                   indent: isScreenWide ? 100 : 100,
                   endIndent: isScreenWide ? 100 : 130,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
             ])));

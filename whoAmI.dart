@@ -1,6 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:portfolio/colors.dart';
 import 'package:portfolio/contactMe.dart';
 import 'package:portfolio/presentition.dart';
 
@@ -26,7 +25,7 @@ class _WhoamIState extends State<WhoamI> {
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     double contextWidth = 1920;
-
+  
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth >= 850)

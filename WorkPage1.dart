@@ -2,7 +2,9 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/WorkPictures.dart';
 import 'package:portfolio/my_flutter_app_icons.dart';
+import 'package:portfolio/themeProvider.dart';
 import 'package:portfolio/workDescription.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Work1 extends StatefulWidget {
@@ -17,13 +19,15 @@ class _Work1State extends State<Work1> {
     bool smallScreen = MediaQuery.of(context).size.width < 850;
     double contextHeight = 907;
     double contextWidth = 1920;
+    var theme = Provider.of<ThemeChanger>(context, listen: true).getTheme;
+
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
             10,
           ),
-          color: Color(0xffe5d2c4),
-          border: Border.all(color: Color(0xffA36672))),
+          color: theme.sliderTheme,
+          border: Border.all(color: theme.bordertheme)),
       width: isScreenWide
           ? contextWidth * 0.6
           : smallScreen

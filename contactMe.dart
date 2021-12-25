@@ -2,6 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/colors.dart';
+import 'package:portfolio/themeProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'my_flutter_app_icons.dart';
@@ -15,6 +18,7 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
+    var theme = Provider.of<ThemeChanger>(context, listen: true).getTheme;
     double contextHeight = 907; //MediaQuery.of(context).size.height;
     double contextWidth = 1920;
     return Align(
@@ -37,7 +41,7 @@ class _ContactState extends State<Contact> {
                       maxFontSize: isScreenWide ? 40 : 24,
                       style: GoogleFonts.poppins(
                         fontSize: isScreenWide ? 36 : 20,
-                        color: Color(0xffC84E6D),
+                        color: theme.headerTheme,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -67,7 +71,7 @@ class _ContactState extends State<Contact> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color(0xffC84E6D),
+                                color: theme.textTheme,
                                 fontFamily: 'Poppins',
                               ),
                             ),
@@ -94,7 +98,7 @@ class _ContactState extends State<Contact> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color(0xffC84E6D),
+                                color: theme.textTheme,
                                 fontFamily: 'Poppins',
                               ),
                             ),
@@ -121,7 +125,7 @@ class _ContactState extends State<Contact> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color(0xffC84E6D),
+                                color: theme.textTheme,
                                 fontFamily: 'Poppins',
                               ),
                             ),
@@ -135,7 +139,7 @@ class _ContactState extends State<Contact> {
                   thickness: 2,
                   indent: 100,
                   endIndent: isScreenWide ? 20 : 10,
-                  color: Color(0xff856654),
+                  color: theme.bordertheme,
                 ),
               ),
               Align(
@@ -145,7 +149,7 @@ class _ContactState extends State<Contact> {
                   thickness: 2,
                   indent: isScreenWide ? 50 : 60,
                   endIndent: isScreenWide ? 100 : 50,
-                  color: Color(0xff856654),
+                  color: theme.textTheme,
                 ),
               ),
             ]),
