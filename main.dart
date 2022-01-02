@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:portfolio/Blog/blog.dart';
+import 'package:portfolio/Hire/hireMe.dart';
 import 'package:portfolio/Home/Home.dart';
 import 'package:portfolio/colors%20&%20theme/colors.dart';
 import 'package:portfolio/colors%20&%20theme/themeProvider.dart';
@@ -28,6 +29,7 @@ class _MyApp extends State<MyApp> {
       routes: {
         '/': (context) => Home(),
         'blog': (context) => Blog(),
+        'Hire': (context) => HireMe(),
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,

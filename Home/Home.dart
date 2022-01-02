@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
                   child: AutoSizeText(
                     " Ktbatou",
                     maxLines: 1,
-                    style: GoogleFonts.sourceCodePro(
+                    style: GoogleFonts.courgette(
                       fontSize: isScreenWide ? 32 : 24,
                       color: theme.headerTheme,
                       //  fontWeight: FontWeight.w400,
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
           toolbarHeight: contextHeight * 0.06,
           actions: <Widget>[
             ActionBar(
-              flag: false,
+              rout: 'home',
             )
           ],
         ),

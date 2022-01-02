@@ -41,7 +41,7 @@ class _BlogState extends State<Blog> {
                   child: AutoSizeText(
                     "Ktbatou",
                     maxLines: 1,
-                    style: GoogleFonts.sourceCodePro(
+                    style: GoogleFonts.courgette(
                       fontSize: isScreenWide ? 32 : 24,
                       color: theme.headerTheme,
                       //  fontWeight: FontWeight.w400,
@@ -51,7 +51,7 @@ class _BlogState extends State<Blog> {
               )
             : Container(),
         toolbarHeight: contextHeight * 0.06,
-        actions: <Widget>[ActionBar(flag: true)],
+        actions: <Widget>[ActionBar(rout:'blog')],
       ),
       drawer: Drawer(child: NavBar()),
       body: Center(
