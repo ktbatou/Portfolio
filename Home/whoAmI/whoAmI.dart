@@ -25,7 +25,7 @@ class _WhoamIState extends State<WhoamI> {
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     double contextWidth = 1920;
-  
+
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth >= 850)
@@ -44,12 +44,13 @@ class _WhoamIState extends State<WhoamI> {
                                   ? contextWidth * 0.4
                                   : contextWidth * 0.25,
                               width: isScreenWide
-                                  ? contextWidth * 0.3
-                                  : contextWidth * 0.2,
+                                  ? contextWidth * 0.35
+                                  : contextWidth * 0.25,
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
                                       fit: BoxFit.fitHeight,
-                                      image: myImage.image)))),
+                                      image: Image.asset("images/me.png")
+                                          .image)))),
                       Contact(),
                     ])));
       else if (constraints.maxWidth < 850) {

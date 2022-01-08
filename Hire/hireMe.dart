@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Hire/email.dart';
 import 'package:portfolio/NavBar/appBarActions.dart';
 import 'package:portfolio/NavBar/navBar.dart';
 import 'package:portfolio/colors%20&%20theme/themeProvider.dart';
@@ -75,7 +78,14 @@ class _HireMeState extends State<HireMe> {
                 width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
                 child: TextFormField(
                   controller: fullName,
+                  style: TextStyle(color: theme.textTheme),
+                  maxLength: 100,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.grey, width: 1.0),
+                    ),
                     border: OutlineInputBorder(
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
@@ -87,7 +97,7 @@ class _HireMeState extends State<HireMe> {
                     ),
                     labelText: 'Full Name',
                     labelStyle: TextStyle(color: theme.textTheme),
-                    focusColor: Color(0xff0F6E28),
+                    counterStyle: TextStyle(color: Colors.grey),
                   ),
                   validator: (String? value) {
                     if (value!.isEmpty) {
@@ -102,8 +112,20 @@ class _HireMeState extends State<HireMe> {
                 width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
                 child: TextFormField(
                   controller: Email,
+                  style: TextStyle(color: theme.textTheme),
+
+                  /*   maxLength: 100,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,*/
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: theme.bordertheme),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                       borderSide:
@@ -111,12 +133,13 @@ class _HireMeState extends State<HireMe> {
                     ),
                     labelText: 'Email',
                     labelStyle: TextStyle(color: theme.textTheme),
-                    focusColor: Color(0xff0F6E28),
+                    counterStyle: TextStyle(color: Colors.grey),
                   ),
                   validator: (String? value) {
-                    if (value!.isEmpty) {
+                    final bool isValid = EmailValidator.validate(value!);
+                    if (value.isEmpty) {
                       return 'Please enter some text';
-                    }
+                    } else if (isValid == false) return 'Invalid Email';
                     return null;
                   },
                 ),
@@ -126,9 +149,19 @@ class _HireMeState extends State<HireMe> {
                 width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
                 child: TextFormField(
                   controller: Message,
+                  style: TextStyle(color: theme.textTheme),
+                  maxLength: 500,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   maxLines: contextHeight < 850 ? 6 : 10,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: theme.bordertheme),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                       borderSide:
@@ -136,7 +169,7 @@ class _HireMeState extends State<HireMe> {
                     ),
                     labelText: 'Message',
                     labelStyle: TextStyle(color: theme.textTheme),
-                    focusColor: Color(0xff0F6E28),
+                    counterStyle: TextStyle(color: Colors.grey),
                   ),
                   validator: (String? value) {
                     if (value!.isEmpty) {
@@ -168,11 +201,19 @@ class _HireMeState extends State<HireMe> {
                             TextStyle(color: theme.headerTheme, fontSize: 16)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        senEmail(
+                            email: Email.text,
+                            name: fullName.text,
+                            msg: Message.text);
                         // If the form is valid, display a snackbar. In the real world,
                         // you'd often call a server or save the information in a database.
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
+                          const SnackBar(
+                              backgroundColor: Colors.lightGreen,
+                              content:
+                                  Text('The message was sent successfully')),
                         );
+                        Navigator.of(context).pushNamed('/');
                       }
                     },
                   ))
