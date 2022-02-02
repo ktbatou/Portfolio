@@ -14,17 +14,15 @@ class Contacts extends StatefulWidget {
 }
 
 class _ContactsState extends State<Contacts> {
-     
-
   @override
   Widget build(BuildContext context) {
-    double contextWidth = 1920; var theme = Provider.of<ThemeChanger>(context).getTheme;
+    double contextWidth = 1920;
+    var theme = Provider.of<ThemeChanger>(context).getTheme;
     return Container(
       width: contextWidth * 0.6,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-        
           Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -33,7 +31,9 @@ class _ContactsState extends State<Contacts> {
                     alignment: Alignment.center,
                     child: Container(
                         padding: EdgeInsets.only(top: 13, left: 10),
-                        child: Icon(MyFlutterApp.linkedin_squared))),
+                        child: Icon(
+                          MyFlutterApp.linkedin_squared,
+                        ))),
                 Align(
                     alignment: Alignment.center,
                     child: Container(
@@ -87,7 +87,10 @@ class _ContactsState extends State<Contacts> {
                     alignment: Alignment.center,
                     child: Container(
                         padding: EdgeInsets.only(top: 13, left: 10),
-                        child: Icon(MyFlutterApp.twitter))),
+                        child: Icon(
+                          MyFlutterApp.twitter,
+                          color: Color(0xff1da5ef),
+                        ))),
                 Align(
                     alignment: Alignment.center,
                     child: Container(

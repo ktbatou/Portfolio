@@ -40,15 +40,16 @@ class _WhoamIState extends State<WhoamI> {
                       Align(
                           alignment: Alignment.center,
                           child: Container(
+                              //  margin: EdgeInsets.only(left: 70, right: 50),
                               height: isScreenWide
-                                  ? contextWidth * 0.4
+                                  ? contextWidth * 0.35
                                   : contextWidth * 0.25,
                               width: isScreenWide
-                                  ? contextWidth * 0.35
+                                  ? contextWidth * 0.3
                                   : contextWidth * 0.25,
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
-                                      fit: BoxFit.fitHeight,
+                                      fit: BoxFit.fitWidth,
                                       image: Image.asset("images/me.png")
                                           .image)))),
                       Contact(),
@@ -69,14 +70,14 @@ class _WhoamIState extends State<WhoamI> {
                               : Alignment.center,
                           child: Container(
                               height: isScreenWide
-                                  ? contextWidth * 0.2
-                                  : contextWidth * 0.2,
+                                  ? contextWidth * 0.16
+                                  : contextWidth * 0.16,
                               width: isScreenWide
-                                  ? contextWidth * 0.2
-                                  : contextWidth * 0.2,
+                                  ? contextWidth * 0.16
+                                  : contextWidth * 0.16,
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
-                                      fit: BoxFit.fitHeight,
+                                      fit: BoxFit.fitWidth,
                                       image: AssetImage('images/me.png'))))),
                       Container(
                           padding:

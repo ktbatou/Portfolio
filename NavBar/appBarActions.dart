@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:portfolio/colors%20&%20theme/colors.dart';
 import 'package:portfolio/colors%20&%20theme/themeProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ActionBar extends StatefulWidget {
   String rout;
@@ -17,9 +18,7 @@ class _ActionState extends State<ActionBar> {
   @override
   Widget build(BuildContext context) {
     var theme = context.watch<ThemeChanger>().getTheme;
-    IconData themeIcon = theme.toString() == "Instance of 'LightMode'"
-        ? Icons.dark_mode_outlined
-        : Icons.wb_sunny;
+    IconData themeIcon = context.watch<ThemeChanger>().getIcon;
     bool isScreenSmall = MediaQuery.of(context).size.width < 850;
     bool isScreenWide = MediaQuery.of(context).size.width >= 850;
 
@@ -99,19 +98,15 @@ class _ActionState extends State<ActionBar> {
           padding: EdgeInsets.only(right: 30),
           child: InkWell(
               overlayColor: MaterialStateProperty.all(Colors.transparent),
-              onTap: () {
-                if (theme.toString() == "Instance of 'LightMode'") {
+              onTap: () async {
+                var prefs = await SharedPreferences.getInstance();
+
+                if (prefs.getString('theme') == 'light') {
                   Provider.of<ThemeChanger>(context, listen: false)
                       .setTheme(DarkMode());
-                  setState(() {
-                    themeIcon = Icons.wb_sunny;
-                  });
                 } else {
                   Provider.of<ThemeChanger>(context, listen: false)
                       .setTheme(LightMode());
-                  setState(() {
-                    themeIcon = Icons.dark_mode_outlined;
-                  });
                 }
               },
               child: Icon(

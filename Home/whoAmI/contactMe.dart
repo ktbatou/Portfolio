@@ -59,7 +59,10 @@ class _ContactState extends State<Contact> {
                         alignment: Alignment.center,
                         child: Container(
                             padding: EdgeInsets.only(top: 13, left: 10),
-                            child: Icon(MyFlutterApp.linkedin_squared))),
+                            child: Icon(
+                              MyFlutterApp.linkedin_squared,
+                              color: Color(0xff0a66c2),
+                            ))),
                     Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -86,7 +89,10 @@ class _ContactState extends State<Contact> {
                         alignment: Alignment.center,
                         child: Container(
                             padding: EdgeInsets.only(top: 13, right: 10),
-                            child: Icon(MyFlutterApp.email))),
+                            child: Icon(
+                              MyFlutterApp.email,
+                              color: Colors.red.shade700,
+                            ))),
                     Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -113,7 +119,8 @@ class _ContactState extends State<Contact> {
                         alignment: Alignment.center,
                         child: Container(
                             padding: EdgeInsets.only(top: 13, left: 0),
-                            child: Icon(MyFlutterApp.twitter))),
+                            child: Icon(MyFlutterApp.twitter,
+                                color: Color(0xff1da5ef)))),
                     Align(
                         alignment: Alignment.center,
                         child: Container(

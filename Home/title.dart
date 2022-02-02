@@ -23,7 +23,7 @@ class _TitleState extends State<TitleText> {
     return Center(
         child: Container(
             width: contextWidth * 0.2,
-            padding: EdgeInsets.only(top: isScreenWide ? 80 : 30),
+            padding: EdgeInsets.only(top: isScreenWide ? 30 : 30),
             child: Column(children: [
               Align(
                 //  alignment: Alignment.centerLeft,

@@ -6,27 +6,36 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeChanger with ChangeNotifier {
   dynamic _themeMode = LightMode();
+  IconData _themeIcon = Icons.wb_sunny;
 
   fetchTheme() async {
     var prefs = await SharedPreferences.getInstance();
+    print("first time i guess theme ${prefs.getString('theme')}");
     if (prefs.getString('theme') == null) {
       notifyListeners();
       return null;
-    } else if (prefs.getString('theme') == 'dark')
+    } else if (prefs.getString('theme') == 'dark') {
+      _themeIcon = Icons.wb_sunny;
       _themeMode = DarkMode();
-    else
+    } else {
       _themeMode = LightMode();
+      _themeIcon = Icons.dark_mode_outlined;
+    }
     notifyListeners();
     return null;
   }
 
   get getTheme => _themeMode;
+  get getIcon => _themeIcon;
   void setTheme(dynamic themeMode) async {
     var prefs = await SharedPreferences.getInstance();
-    if (themeMode.toString() == "Instance of 'LightMode'") {
+    if ('dark' == prefs.getString('theme')) {
       await prefs.setString('theme', 'light');
-    } else
+      _themeIcon = Icons.dark_mode_outlined;
+    } else {
       await prefs.setString('theme', 'dark');
+      _themeIcon = Icons.wb_sunny;
+    }
     _themeMode = themeMode;
     notifyListeners();
   }
