@@ -31,15 +31,15 @@ class _ContactsState extends State<Contacts> {
                     alignment: Alignment.center,
                     child: Container(
                         padding: EdgeInsets.only(top: 13, left: 10),
-                        child: Icon(
-                          MyFlutterApp.linkedin_squared,
-                        ))),
+                        child: Icon(MyFlutterApp.linkedin_squared,
+                            color: Color(0xff0a66c2)))),
                 Align(
                     alignment: Alignment.center,
                     child: Container(
                       padding: EdgeInsets.only(top: 16, left: 14),
                       child: InkWell(
-                        onTap: () => launch('https://github.com/ktbatou'),
+                        onTap: () =>
+                            launch('https://www.linkedin.com/in/ktbatou/'),
                         child: Text(
                           "LinkedIn",
                           textAlign: TextAlign.center,
@@ -60,7 +60,10 @@ class _ContactsState extends State<Contacts> {
                     alignment: Alignment.center,
                     child: Container(
                         padding: EdgeInsets.only(top: 13, left: 10),
-                        child: Icon(MyFlutterApp.email))),
+                        child: Icon(
+                          MyFlutterApp.email,
+                          color: Colors.red.shade700,
+                        ))),
                 Align(
                     alignment: Alignment.center,
                     child: Container(
@@ -96,7 +99,8 @@ class _ContactsState extends State<Contacts> {
                     child: Container(
                       padding: EdgeInsets.only(top: 16, left: 14),
                       child: InkWell(
-                        onTap: () => launch('https://github.com/ktbatou'),
+                        onTap: () =>
+                            launch('https://twitter.com/Kaoutar_TBATOU'),
                         child: Text(
                           "Twitter",
                           textAlign: TextAlign.center,

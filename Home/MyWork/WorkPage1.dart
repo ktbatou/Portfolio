@@ -1,6 +1,7 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Home/MyWork/WorkPictures.dart';
+import 'package:portfolio/Home/MyWork/picSlider.dart';
 import 'package:portfolio/Home/my_flutter_app_icons.dart';
 import 'package:portfolio/colors%20&%20theme/themeProvider.dart';
 import 'package:portfolio/Home/MyWork/workDescription.dart';
@@ -43,7 +44,10 @@ class _Work1State extends State<Work1> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment:
             smallScreen ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-        children: [workPictures(), description()],
+        children: [
+          smallScreen ? SlideWorkPic() : workPictures(),
+          description()
+        ],
       ),
     );
   }

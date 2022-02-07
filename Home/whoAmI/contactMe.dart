@@ -68,7 +68,8 @@ class _ContactState extends State<Contact> {
                         child: Container(
                           padding: EdgeInsets.only(top: 16, left: 14),
                           child: InkWell(
-                            onTap: () => launch('https://github.com/ktbatou'),
+                            onTap: () =>
+                                launch('https://www.linkedin.com/in/ktbatou/'),
                             child: Text(
                               "LinkedIn",
                               textAlign: TextAlign.center,
@@ -126,7 +127,8 @@ class _ContactState extends State<Contact> {
                         child: Container(
                           padding: EdgeInsets.only(top: 16, left: 16),
                           child: InkWell(
-                            onTap: () => launch('https://github.com/ktbatou'),
+                            onTap: () =>
+                                launch('https://twitter.com/Kaoutar_TBATOU'),
                             child: Text(
                               "Twitter",
                               textAlign: TextAlign.center,

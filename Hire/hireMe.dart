@@ -75,23 +75,27 @@ class _HireMeState extends State<HireMe> {
                           color: theme.headerTheme))),
               Container(
                 padding: EdgeInsets.only(top: contextHeight * 0.04),
-                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
+                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.7,
                 child: TextFormField(
                   controller: fullName,
                   style: TextStyle(color: theme.textTheme),
                   maxLength: 100,
                   maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
                     enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           const BorderSide(color: Colors.grey, width: 1.0),
                     ),
                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),
@@ -109,7 +113,7 @@ class _HireMeState extends State<HireMe> {
               ),
               Container(
                 padding: EdgeInsets.only(top: contextHeight * 0.04),
-                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
+                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.7,
                 child: TextFormField(
                   controller: Email,
                   style: TextStyle(color: theme.textTheme),
@@ -118,16 +122,20 @@ class _HireMeState extends State<HireMe> {
                   maxLengthEnforcement: MaxLengthEnforcement.enforced,*/
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
                     enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           const BorderSide(color: Colors.grey, width: 1.0),
                     ),
                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),
@@ -146,7 +154,7 @@ class _HireMeState extends State<HireMe> {
               ),
               Container(
                 padding: EdgeInsets.only(top: contextHeight * 0.04),
-                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.42,
+                width: isScreenWide ? contextWidth * 0.6 : contextWidth * 0.7,
                 child: TextFormField(
                   controller: Message,
                   style: TextStyle(color: theme.textTheme),
@@ -155,15 +163,17 @@ class _HireMeState extends State<HireMe> {
                   maxLines: contextHeight < 850 ? 6 : 10,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           const BorderSide(color: Colors.grey, width: 1.0),
                     ),
                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide:
                           BorderSide(width: 1, color: theme.bordertheme),
                     ),

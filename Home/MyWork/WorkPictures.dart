@@ -11,6 +11,7 @@ class _workPicturesState extends State<workPictures> {
   Widget build(BuildContext context) {
     bool isScreenWide = MediaQuery.of(context).size.width >= 1200;
     bool smallScreen = MediaQuery.of(context).size.width < 850;
+    bool mobileScreen = MediaQuery.of(context).size.width < 650;
 
     double contextHeight = 907;
     double contextWidth = 1920;
@@ -42,28 +43,30 @@ class _workPicturesState extends State<workPictures> {
                         image: new DecorationImage(
                             fit: BoxFit.fill,
                             image: AssetImage('images/home.png'))))),
-            DelayedDisplay(
-                fadingDuration: Duration(milliseconds: 600),
-                delay: Duration(milliseconds: 880),
-                slidingBeginOffset: Offset(0, 3),
-                child: Container(
-                    margin: EdgeInsets.only(
-                      left: isScreenWide ? 20 : 10,
-                    ),
-                    width: isScreenWide
-                        ? contextWidth * 0.083
-                        : contextWidth * 0.063,
-                    height: isScreenWide ? 320 : 250,
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          15,
+            mobileScreen
+                ? Container()
+                : DelayedDisplay(
+                    fadingDuration: Duration(milliseconds: 600),
+                    delay: Duration(milliseconds: 880),
+                    slidingBeginOffset: Offset(0, 3),
+                    child: Container(
+                        margin: EdgeInsets.only(
+                          left: isScreenWide ? 20 : 10,
                         ),
-                        border: Border.all(
-                          color: Color(0xff606078),
-                        ),
-                        image: new DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('images/menu.png'))))),
+                        width: isScreenWide
+                            ? contextWidth * 0.083
+                            : contextWidth * 0.06,
+                        height: isScreenWide ? 320 : 250,
+                        decoration: new BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              15,
+                            ),
+                            border: Border.all(
+                              color: Color(0xff606078),
+                            ),
+                            image: new DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage('images/menu.png'))))),
             isScreenWide
                 ? DelayedDisplay(
                     fadingDuration: Duration(milliseconds: 600),

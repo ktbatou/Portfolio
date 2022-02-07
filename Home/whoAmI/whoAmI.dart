@@ -46,7 +46,7 @@ class _WhoamIState extends State<WhoamI> {
                                   : contextWidth * 0.25,
                               width: isScreenWide
                                   ? contextWidth * 0.3
-                                  : contextWidth * 0.25,
+                                  : contextWidth * 0.2,
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
                                       fit: BoxFit.fitWidth,
@@ -71,17 +71,18 @@ class _WhoamIState extends State<WhoamI> {
                           child: Container(
                               height: isScreenWide
                                   ? contextWidth * 0.16
-                                  : contextWidth * 0.16,
+                                  : contextWidth * 0.13,
                               width: isScreenWide
                                   ? contextWidth * 0.16
-                                  : contextWidth * 0.16,
+                                  : contextWidth * 0.13,
                               decoration: new BoxDecoration(
                                   image: new DecorationImage(
                                       fit: BoxFit.fitWidth,
                                       image: AssetImage('images/me.png'))))),
                       Container(
-                          padding:
-                              EdgeInsets.only(top: isScreenWide ? 100 : 30),
+                          padding: EdgeInsets.only(
+                              top: isScreenWide ? 100 : 30,
+                              left: isScreenWide ? 30 : 0),
                           alignment: isScreenWide
                               ? Alignment.centerRight
                               : Alignment.center,
